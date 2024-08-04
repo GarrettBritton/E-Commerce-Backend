@@ -14,7 +14,7 @@ const tagData = [
     tag_name: 'Cream',
   },
   {
-    tag_name: 'Black',
+    tag_name: 'Green',
   },
   {
     tag_name: 'Navy',
