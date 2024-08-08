@@ -3,32 +3,28 @@ const Product = require('./Product');
 const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
-// Define associations
 Product.belongsTo(Category, {
   foreignKey: 'category_id',
-  as: 'category'
+  onDelete: 'CASCADE',
 });
 
 Category.hasMany(Product, {
   foreignKey: 'category_id',
-  as: 'products'
 });
 
 Product.belongsToMany(Tag, {
   through: ProductTag,
-  as: 'tags',
-  foreignKey: 'product_id'
+  foreignKey: 'product_id',
 });
 
 Tag.belongsToMany(Product, {
   through: ProductTag,
-  as: 'products',
-  foreignKey: 'tag_id'
+  foreignKey: 'tag_id',
 });
 
 module.exports = {
-  Product,
   Category,
+  Product,
   Tag,
   ProductTag,
 };
